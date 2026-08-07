@@ -24,7 +24,7 @@
     async function getTableData() {
       // Replace 'your_table_name' with the actual table name you created in Supabase
       const { data, error } = await supabaseClient
-        .from('your_table_name') 
+        .from('MATCHES') 
         .select('*');
 
       const outputDiv = document.getElementById('output');
