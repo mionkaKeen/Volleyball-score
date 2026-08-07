@@ -1,52 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supabase Integration</title>
 
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Load Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+  <h1>Supabase Connection Test</h1>
+  <div id="output">Loading data...</div>
 
-    <div class="login-container">
-        <h2>Admin Login</h2>
+  <script>
+    // Project Credentials
+    const SUPABASE_URL = 'https://cesffaiaxrwoomuttlza.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_QOFPHVDAgI2dNr977BREvw_ga_HMzuE';
 
-        <form action="dashboard.html" method="post">
+    // Initialize the Client
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-            <!-- Login Type -->
-            <label for="role">Login Type</label>
-            <select id="role" name="role" required>
-                <option value="admin">Admin</option>
-            </select>
+    // Test function to pull rows from your database
+    async function getTableData() {
+      // Replace 'your_table_name' with the actual table name you created in Supabase
+      const { data, error } = await supabaseClient
+        .from('your_table_name') 
+        .select('*');
 
-            <!-- Username -->
-            <label for="username">Username</label>
-            <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Enter username"
-                required
-            >
+      const outputDiv = document.getElementById('output');
 
-            <!-- Password -->
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter password"
-                required
-            >
+      if (error) {
+        console.error('Supabase Error:', error);
+        outputDiv.innerText = 'Error: ' + error.message;
+        return;
+      }
 
-            <!-- Login Button -->
-            <button type="submit">Login</button>
+      console.log('Fetched Data:', data);
+      outputDiv.innerText = JSON.stringify(data, null, 2);
+    }
 
-        </form>
-    </div>
-
+    getTableData();
+  </script>
 </body>
 </html>
