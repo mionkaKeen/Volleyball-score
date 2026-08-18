@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volleyball Score System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="app-header">
+    <div class="logo">
+      <span class="icon">🏐</span>
+      <h1>VolleyScore Live</h1>
+    </div>
+    <div class="status-badge" id="system-status">
+      <span class="dot green"></span> System Ready
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h2>Match Control & Scoring Hub</h2>
+    <p>Select a module below to manage live scores, update match details, or launch the stadium scoreboard display.</p>
+  </section>
+
+  <!-- Navigation Cards -->
+  <main class="dashboard-grid">
+    
+    <!-- 1. Scoring System Link -->
+    <a href="scoring.html" class="card primary-card">
+      <div class="card-icon">🎛️</div>
+      <h3>Scoring Control Panel</h3>
+      <p>Log points, track set scores, manage timeouts, and record rotations in real time.</p>
+      <span class="card-action">Launch Controller →</span>
+    </a>
+
+    <!-- 2. Display / Scoreboard Link -->
+    <a href="display.html" class="card display-card" target="_blank">
+      <div class="card-icon">📺</div>
+      <h3>Scoreboard Display</h3>
+      <p>Open full-screen broadcast scoreboard optimized for external screens and streams.</p>
+      <span class="card-action">Open Display →</span>
+    </a>
+
+    <!-- 3. Match Updates / Logs Link -->
+    <a href="match-updates.html" class="card updates-card">
+      <div class="card-icon">📊</div>
+      <h3>Match Updates & Logs</h3>
+      <p>Review match history, point-by-point feeds, team statistics, and set summaries.</p>
+      <span class="card-action">View Updates →</span>
+    </a>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; <span id="year"></span> VolleyScore System. Local Storage Engine Active.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
